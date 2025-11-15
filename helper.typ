@@ -1,4 +1,4 @@
-#import "src/lib.typ": noise
+#import "src/lib.typ": perlin
 
 // ----------------------------------------
 // utils functions
@@ -51,7 +51,7 @@
   for i in range(num-x) {
     let x = start-x + step-x * i
 
-    let noise-val = noise(x, y) // compute noise
+    let noise-val = perlin(x, y) // compute noise
     noise-matrix.push(noise-val)
   }
 }

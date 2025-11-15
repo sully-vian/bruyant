@@ -40,17 +40,17 @@
 /// -> float: The noise value at the given coordinates in range [-1,1]
 ///
 /// ```typ
-/// #let value = noise(2.5, 1.3) // Retuns a value between -1 and 1
+/// #let value = perlin(2.5, 1.3) // Retuns a value between -1 and 1
 /// ```
-#let noise(x, y) = {
+#let perlin(x, y) = {
   _asserts(x, y)
 
   // cell coordinates
   let i = calc.floor(x)
   let j = calc.floor(y)
   // fractional part
-  let xf = x - i
-  let yf = y - j
+  let xf = calc.fract(x)
+  let yf = calc.fract(y)
 
   // get angles of 4 corner gradients
   let angle-tl = _get-angle(j, i) // top-left
@@ -65,8 +65,8 @@
   let inf-bl = xf * calc.cos(angle-bl) + (yf - 1) * calc.sin(angle-bl)
   let inf-br = (xf - 1) * calc.cos(angle-br) + (yf - 1) * calc.sin(angle-br)
 
-  let fade-x = _fade(calc.fract(x))
-  let fade-y = _fade(calc.fract(y))
+  let fade-x = _fade(xf)
+  let fade-y = _fade(yf)
 
   let top = _lerp(inf-tl, inf-tr, fade-x)
   let bot = _lerp(inf-bl, inf-br, fade-x)

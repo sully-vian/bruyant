@@ -1,8 +1,8 @@
-#import "src/lib.typ": noise
+#import "src/lib.typ": perlin
 #import "helper.typ": background-grid
 
 #set document(
-  title: [Perlyn User's Manual],
+  title: [Bruyant User's Manual],
   author: "sully-vian",
   date: none,
 )
@@ -21,16 +21,16 @@
   },
 ))
 
-= Perlin User's Manual
+= Bruyant User's Manual
 
 == Basic Usage
 
-The core function is `noise(x,y)` which generates Perlin noise values:
+The core function is `perlin(x,y)` which generates Perlin noise values:
 
 ```typ
-#import "@preview/perlyn:0.1.0": noise
+#import "@preview/bruyant:0.1.0": perlin
 
-#let value = noise(2.5, 1.3) // Returns value in [-1, 1]
+#let value = perlin(2.5, 1.3) // Returns value in [-1, 1]
 ```
 
 == Visualization Examples
